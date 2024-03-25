@@ -6,11 +6,14 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+
   const handleLogin = () => {
     // Your authentication logic goes here
     // For simplicity, let's just check if username and password are not empty
     if (username !== '' && password !== '') {
       setIsLoggedIn(true);
+      
+      
     }
   };
 
@@ -24,6 +27,9 @@ function App() {
   return (
     <div className="App">
       <h1>Search Engine</h1>
+      <div>
+      <button id='logout' onClick={handleLogout}>Logout</button>
+      </div>
       <h1>{isLoggedIn ? `Welcome, ${username}!` : 'Please log in'}</h1>
       {!isLoggedIn ? (
         <div>
@@ -46,11 +52,10 @@ function App() {
       ) : (
         <div>
           <SearchBar/>
-        <button id='logout' onClick={handleLogout}>Logout</button>
         </div>
       )}
     </div>
   );
-}
 
+      }
 export default App;
