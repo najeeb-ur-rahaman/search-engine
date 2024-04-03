@@ -11,13 +11,24 @@ const Signup1 = () => {
     const headers = {
         'Content-Type': 'application/json'
       }
-      const centerDivStyle = {
-        display: 'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        height: '100vh'
-      };
-      
+     
+      const center= {
+    
+        margin:"100px 0 0 400px",
+        width: "50%",
+        padding: "10px",
+        top:"300px"
+      }  
+
+      const center1= {
+    
+        margin:"0px 50px 0 200px",
+        width: "70%",
+        padding: "10px",
+        top:"600px",
+        backgroundColor:"blue"
+      }
+    
     const user= {username,password};
     const handleSubmit = () => {
 
@@ -28,7 +39,10 @@ const Signup1 = () => {
         })
     }
     return (
-        <div className="App"    >
+
+        <div>
+       <h1 style={center1}>Academic Search Engine</h1>
+       <div style={center}>
             <div>{message?message:"Please register to ASE"}</div>
           <input
             type="text"
@@ -36,7 +50,7 @@ const Signup1 = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          
+          <br/>
           <input
             type="password"
             placeholder="Password"
@@ -51,6 +65,7 @@ const Signup1 = () => {
           <br/>
           <br/>
           {message && <Link to="/" element={<SignupPage/>}>Go back to Login</Link>}
+          </div>
           </div>
     )   
 }
