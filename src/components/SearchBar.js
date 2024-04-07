@@ -38,7 +38,7 @@ const center1= {
 
     const getData = async () => {
         console.log("hello" + inputElement.current?.value);
-        const res = await fetch(`http://localhost:8080/searchByName/${inputElement.current?.value}`);
+        const res = await fetch(`http://localhost:8080/search/${inputElement.current?.value}`);
         const data = await res.json();
         setData(data);
         setShowButton(false)
