@@ -43,7 +43,10 @@ const Signup1 = () => {
         <div>
        <h1 style={center1}>Academic Search Engine</h1>
        <div style={center}>
-            <div>{message?message:"Please register to ASE"}</div>
+        {message.includes("exist") ?
+            <div style={{color:'red'}}>{message}</div> : 
+            <div style={{color:'green'}}>{message}</div> 
+            }
           <input
             type="text"
             placeholder="Username"
