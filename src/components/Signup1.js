@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import SignupPage from './SingnupPage.js'
+import '../Form.css'; // Import CSS file for styling
 const Signup1 = () => {
 
     const [username,setUsername] = useState('');
@@ -39,37 +40,67 @@ const Signup1 = () => {
         })
     }
     return (
+      // {message.includes("exist") ?
+      // <div style={{color:'red'}}>{message}</div> : 
+      // <div style={{color:'green'}}>{message}</div> 
+      // }
+      //   <div className="auth-container">
+      //  <h1 style={center1}>Academic Search Engine</h1>
+       
+        
+      //     <input
+      //       type="text"
+      //       placeholder="Username"
+      //       value={username}
+      //       onChange={(e) => setUsername(e.target.value)}
+      //     />
+          
+      //     <br/>
+      //     <div className="input-group">
+      //     <input
+      //       type="password"
+      //       placeholder="Password"
+      //       value={password}
+      //       onChange={(e) => setPassword(e.target.value)}
+      //     />
+      //     </div>
+      //     <div>
+      //     <button onClick={handleSubmit}>Register</button>
+         
+      //     </div>
+      //     <br/>
+      //     <br/>
+      //     {message && <Link to="/" element={<SignupPage/>}>Go back to Login</Link>}
+      //     </div>
 
+     
+     
+      
+      <div className="auth-container">
+        
+        <div style={center}>
+          {message==''?
+      <h2>Sign Up</h2>:""}
+       {message.includes("exist") ?
+      <div style={{color:'red'}}>{message}</div> : 
+      <div style={{color:'green'}}>{message}</div> 
+      }
+  
         <div>
-       <h1 style={center1}>Academic Search Engine</h1>
-       <div style={center}>
-        {message.includes("exist") ?
-            <div style={{color:'red'}}>{message}</div> : 
-            <div style={{color:'green'}}>{message}</div> 
-            }
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br/>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          
+          <input type="text"  placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </div>
+        <div>
          
-          <div>
-          <button onClick={handleSubmit}>Register</button>
+          <input type="password"  placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        <button type="submit" className="btn" onClick={handleSubmit}>Register</button>
+  
+      </div>
+      {message && !message.includes('exist') &&<Link to="/" element={<SignupPage/>} style={center}>Go back to Login</Link>}
+    </div>
+    
          
-          </div>
-          <br/>
-          <br/>
-          {message && <Link to="/" element={<SignupPage/>}>Go back to Login</Link>}
-          </div>
-          </div>
     )   
 }
 export default Signup1;

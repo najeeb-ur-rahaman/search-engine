@@ -63,8 +63,8 @@ const user = {username,password}
 
   return (
 
-    <div>
-      <h1 style={center1}>Academic Search Engine</h1>  
+    <div className="auth-container">
+       
     <div style={center}>
       
       <div>
@@ -98,9 +98,9 @@ const user = {username,password}
 
      :
         <div>
-          <div style={center}>
+          {/* <div style={center}>
          <Link to="/" element={<Home/>}>Logout</Link>
-        </div> 
+        </div>  */}
           <SearchBar isLoggedIn={isLoggedIn}/>
         </div>
 }

@@ -23,16 +23,16 @@ const Home = () => {
        <>
        <div>
 
-<h1 style={center1}>Academic Search Engine</h1>  
+ 
 </div>
-       {!islogin ?
+       {!islogin &&
         <div style={center}>
          <Link to="/login" >Login</Link>
         </div>
-        :
-        <div style={{position:"absollute",left:"700px",top:"20px",color: "#fff"}}>
-         <Link to="/logout" >Logout</Link>
-        </div>
+        // :
+        // <div style={{position:"absollute",float:'left',marginTop:'0px'}}>
+        //  <Link to="/logout" >Logout</Link>
+        // </div>
 }
         
         </>

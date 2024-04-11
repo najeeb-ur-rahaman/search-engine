@@ -3,6 +3,8 @@ import List from './List'
 import SearchData from './SearchData';
 import { Link } from 'react-router-dom';
 import SignupPage from './SingnupPage'
+import '../Form.css'; // Import CSS file for styling
+import Home from './Home';
 const SearchBar = ({isLoggedIn}) => {
 
     const [data,setData]=useState([]);
@@ -24,7 +26,7 @@ const center= {
   margin:"00px 50px",
   width: "70%",
   padding: "10px",
-  top:"300px",
+  top:"200px",
   float:"left"
 }
 const center1= {
@@ -44,7 +46,7 @@ const center1= {
         setShowButton(false)
       };
     return(
-   <div>
+   <div className="auth-container1">
 
     {/* <div>
       {isLoggedIn && 
@@ -54,6 +56,9 @@ const center1= {
       }
     </div> */}
    
+          <div style={{position:"absolute", right:"100px",top:"100px"}}>
+         <Link to="/" element={<Home/>}>Logout</Link>
+         </div>
      {showButton? 
      <div style={center}> 
       <input  type="text" ref={inputElement} size="50"/>
