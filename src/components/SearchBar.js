@@ -63,13 +63,13 @@ const center1= {
      <div style={center}> 
       <input  type="text" ref={inputElement} size="50"/>
         
-      <button onClick={getData}>Button</button>
+      <button onClick={getData}>Search</button>
       </div>
 
     :
       <div>
         <input  type="text" ref={inputElement} size="50"/>
-        <button onClick={getData}>Button</button>
+        <button onClick={getData}>Search</button>
       <SearchData data={data}/>
       </div>
 }

@@ -9,7 +9,7 @@ const SearchData= ({data}) => {
     <p key={d.id}>{d.description}</p>
     </div>
     ))}; */}
-    <h1>{data.length}</h1>
+    
     {
         data.map((e)=> (
         <div>
