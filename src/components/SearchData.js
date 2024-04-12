@@ -15,6 +15,7 @@ const SearchData= ({data}) => {
         <div>
        <a href={e} target="_blank">{e}</a>
        <br/>
+       <br/>
        </div>
         ))
     }
