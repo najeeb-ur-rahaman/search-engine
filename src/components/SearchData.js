@@ -11,8 +11,10 @@ const SearchData= ({data}) => {
     ))}; */}
     
     {
-        data.map((e)=> (
+        data.results.map((e)=> (
         <div>
+            <h1>{data.input}</h1>
+           
        <a href={e} target="_blank">{e}</a>
        <br/>
        <br/>
