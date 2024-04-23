@@ -6,7 +6,7 @@ import SignupPage from './SingnupPage'
 import '../Form.css'; // Import CSS file for styling
 import Home from './Home';
 import logo from '../../src/Assests/logout-3.png'
-import searchLogo from '../Assests/icons8-search-64.png'
+//import searchLogo from '../Assests/icons8-search-64.png'
 import axios from 'axios';
 const SearchBar = ({isLoggedIn,username}) => {
 
