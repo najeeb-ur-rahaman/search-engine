@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import SignupPage from './SingnupPage'
 import '../Form.css'; // Import CSS file for styling
 import Home from './Home';
-import logo from '../../src/Assests/logout-1.jpg'
+import logo from '../../src/Assests/logout-3.png'
+import searchLogo from '../Assests/icons8-search-64.png'
 import axios from 'axios';
-const SearchBar = ({isLoggedIn}) => {
+const SearchBar = ({isLoggedIn,username}) => {
 
     const [data,setData]=useState([]);
     const inputElement = useRef();
@@ -27,8 +28,8 @@ const SearchBar = ({isLoggedIn}) => {
 
 const center= {
     
-  margin:"00px 50px",
-  width: "70%",
+  margin:"0px",
+  width: "90%",
   padding: "10px",
   top:"200px",
   float:"left"
@@ -174,7 +175,7 @@ const center1= {
     </div> */}
 
      <div style={{position:"absolute", left:"10px",top:"100px",color:"blue"}}>
-      {data &&
+      {data!='' &&
         <div>
         <p onClick={()=>getData3(2024)} value={'2024'}>since 2024</p>
         <p onClick={()=>getData3(2023)} value={'2023'}>since 2023</p>
@@ -183,18 +184,20 @@ const center1= {
     </div> 
    
           <div style={{position:"absolute", right:"100px",top:"100px"}}>
+            <p style={{color:'blue',fontWeight: 'bold'}}>{username}</p>
          <Link to="/" element={<Home/>}><img src={logo} alt={logo} width="50" height="50"></img></Link>
          </div>
      {showButton? 
      <div style={center}> 
       <input  type="text" ref={inputElement} size="50"/>
-        
+      {/* <img src={searchLogo} alt={searchLogo} width="50" height="50" onClick={getData2}></img> */}
       <button onClick={getData2}>Search</button>
       </div>
 
     :
       <div>
         <input  type="text" ref={inputElement} size="50"/>
+        {/* <img src={searchLogo} alt={searchLogo} width="50" height="50" onClick={getData2}></img> */}
         <button onClick={getData2}>Search</button>
       <SearchData data={data} />
       </div>

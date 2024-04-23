@@ -101,7 +101,7 @@ const user = {username,password}
           {/* <div style={center}>
          <Link to="/" element={<Home/>}>Logout</Link>
         </div>  */}
-          <SearchBar isLoggedIn={isLoggedIn}/>
+          <SearchBar isLoggedIn={isLoggedIn} username={username}/>
         </div>
 }
     </div>
