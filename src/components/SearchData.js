@@ -26,6 +26,7 @@ const SearchData= ({data}) => {
         <div >
             {/* <img src={e.favicon} alt={e.favicon} width="50" height="50"></img> */}
             <p style={styles.titleText}>{e?.title}</p>
+            <p style={styles.titleText}>{e?.type}</p>
              <p style={{color:'green'}}>{e?.publication_info?.summary}</p>
             <p>{e?.snippet}</p>
        <a href={e.url} target="_blank">{e?.url}</a> 
