@@ -13,6 +13,7 @@ const SearchBar = ({isLoggedIn,username}) => {
     const [data,setData]=useState([]);
     const inputElement = useRef();
     const [showButton,setShowButton]=useState(true);
+    const [type,setType]=useState('A')
 
     const input1= useState('2024');
 //  const handleSubmit= async () => {
@@ -28,7 +29,7 @@ const SearchBar = ({isLoggedIn,username}) => {
 
 const center= {
     
-  margin:"0px",
+  margin:"10px",
   width: "90%",
   padding: "10px",
   top:"200px",
@@ -113,7 +114,8 @@ const center1= {
           },
           body: JSON.stringify({
             name:inputElement.current?.value,
-            date1:''
+            date1:'',
+            type:type
          })
         });
         const data = await rawResponse.json();
@@ -131,7 +133,8 @@ const center1= {
           },
           body: JSON.stringify({
             name:inputElement.current?.value,
-            date1:p
+            date1:p,
+            type:type
          })
         });
         const data = await rawResponse.json();
@@ -162,6 +165,12 @@ const center1= {
           // setData(data);
           // setShowButton(false)
         };
+        function MouseOver(event) {
+          event.target.style.background = 'red';
+        }
+        function MouseOut(event){
+          event.target.style.background="";
+        }
 
     return(
    <div className="auth-container1">
@@ -177,28 +186,33 @@ const center1= {
      <div style={{position:"absolute", left:"10px",top:"100px",color:"blue"}}>
       {data!='' &&
         <div>
-        <p onClick={()=>getData3(2024)} value={'2024'}>since 2024</p>
-        <p onClick={()=>getData3(2023)} value={'2023'}>since 2023</p>
-        <p onClick={()=>getData3(2022)} value={'2022'}>since 2022</p>
-        </div>}
+        <Link  onClick={()=>getData3(2024)} value={'2024'}>since 2024</Link><br/>
+        <Link onClick={()=>getData3(2023)} value={'2023'}>since 2023</Link><br/>
+        <Link onClick={()=>getData3(2022)} value={'2022'}>since 2022</Link>
+        </div>
+        }
     </div> 
    
-          <div style={{position:"absolute", right:"100px",top:"100px"}}>
-            <p style={{color:'blue',fontWeight: 'bold'}}>{username}</p>
+          <div style={{position:"absolute", right:"100px",top:"10px"}}>
+            <p style={{color:'blue',fontWeight: 'bold'}}>{username.toUpperCase()}</p>
          <Link to="/" element={<Home/>}><img src={logo} alt={logo} width="50" height="50"></img></Link>
          </div>
      {showButton? 
-     <div style={center}> 
+     <div> 
       <input  type="text" ref={inputElement} size="50"/>
       {/* <img src={searchLogo} alt={searchLogo} width="50" height="50" onClick={getData2}></img> */}
-      <button onClick={getData2}>Search</button>
+      <button onClick={getData2}>Search</button><br/>
+      <input type="radio" style={{color:"bule"}} value="B" name="type" onChange={(e)=>setType(e.target.value)} />     
+       Book <input type="radio" style={{color:"bule"}} value="A" name="type" onChange={(e)=>setType(e.target.value)}/> All
       </div>
 
     :
       <div>
         <input  type="text" ref={inputElement} size="50"/>
         {/* <img src={searchLogo} alt={searchLogo} width="50" height="50" onClick={getData2}></img> */}
-        <button onClick={getData2}>Search</button>
+        <button onClick={getData2}>Search</button><br/>
+        <input type="radio" style={{color:"bule"}} value="B" name="type" onChange={(e)=>setType(e.target.value)} />     
+       Book <input type="radio" style={{color:"bule"}} value="A" name="type" onChange={(e)=>setType(e.target.value)}/> All
       <SearchData data={data} />
       </div>
 }
