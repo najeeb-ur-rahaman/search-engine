@@ -1,7 +1,16 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import book_generated from './Assests/book_generated.jpg'
+import { useState } from "react"
+import Home from "./components/Home1" 
+import SingnupPage from "./components/SingnupPage"
 export default function Navbar() {
+
+
   return (
+    <div>
+      <div style={{backgroundColor:"#91E343",height:"40px",borderRadius:"10px"}}>
+
+      </div>
     <nav className="nav">
       {/* <img src={book_generated} alt=""></img> */}
       
@@ -9,10 +18,12 @@ export default function Navbar() {
       <img src={book_generated} width={35} height={35} alt='Large Pizza' />Academic Search Engine
       </Link>
        <ul>
-        <CustomLink to="/login">Login</CustomLink>
-        <CustomLink to="/signup1">Signup</CustomLink>
+        
+        <CustomLink to="/logout">Logout</CustomLink> 
+        {/* <CustomLink to="/signup1">Signup</CustomLink> */}
       </ul>
     </nav>
+    </div>
   )
 }
 
