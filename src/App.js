@@ -6,7 +6,6 @@ import Signup1 from './components/Signup1';
 import Home1 from './components/Home1';
 import Navbar from './Navbar';
 import About from './components/About';
-import Pricing from './components/Pricing';
 import { useState } from 'react';
 import Login from './components/Login';
 import Signup from './components/Signup';

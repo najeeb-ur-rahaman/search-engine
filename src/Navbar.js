@@ -1,7 +1,6 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import book_generated from './Assests/book_generated.jpg'
 import { useState } from "react"
-import Home from "./components/Home1" 
 import SingnupPage from "./components/SingnupPage"
 export default function Navbar() {
 

@@ -12,9 +12,7 @@ import {
   from 'mdb-react-ui-kit';
   import { useRef } from "react";
   import SearchData from "./SearchData";
-import ProfileModal from "./ProfileModal";
 import { Link } from "react-router-dom";
-import Dropdownoptions from "./Dropdownoptions";
 import List2 from "./List2";
 import Login from './Login'
 // import DropdownModal from './DropdownModal'
