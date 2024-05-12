@@ -19,7 +19,7 @@ export default function Navbar() {
       </Link>
        <ul>
         
-        <CustomLink to="/logout">Logout</CustomLink> 
+        {/* <CustomLink to="/logout">Logout</CustomLink>  */}
         {/* <CustomLink to="/signup1">Signup</CustomLink> */}
       </ul>
     </nav>
