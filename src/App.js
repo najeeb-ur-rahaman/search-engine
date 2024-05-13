@@ -3,13 +3,12 @@ import './App.css';
 import SingnupPage from './components/SingnupPage';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import Signup1 from './components/Signup1';
-import Home1 from './components/Home1';
 import Navbar from './Navbar';
-import About from './components/About';
 import { useState } from 'react';
 import Login from './components/Login';
 import Signup from './components/Signup';
 function App() {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
   
