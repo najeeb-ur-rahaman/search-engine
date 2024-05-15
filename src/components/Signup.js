@@ -13,6 +13,7 @@ from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import Login from './Login';
 
 function Signup() {
 
@@ -85,6 +86,8 @@ function Signup() {
               <MDBBtn outline className='mx-2 px-5' color='white' size='lg' onClick={handleSubmit}>
                 Register
               </MDBBtn>
+              <br/>
+              <Link to="/" element={<Login/>}> Back to Login </Link>
 
             </MDBCardBody>
           </MDBCard>
