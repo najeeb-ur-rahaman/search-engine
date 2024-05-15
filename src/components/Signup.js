@@ -23,22 +23,37 @@ function Signup() {
     const [institute,setInstitute]=useState('');
     const [message,setMessage]= useState('');
     const [errorMessage,setErrorMessage]= useState('');
-
+    const [errMessage,setErrMessage] = useState('')
+    const [notValidEmail,setNotValidEmail]=useState(false);
     const user = {username,password,email,institute}
     const headers = {
       'Content-Type': 'application/json'
     }
     const handleSubmit = () => {
-
+        if(!notValidEmail){
       axios.post("http://localhost:8080/saveUser",user,{
           headers:headers
       }).then((response)=> {
             setMessage(response.data)
       })
   }
+    }
+  const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
+  const handleEmail = (e) => {
+    if(e.target?.value && e.target.value.match(isValidEmail)){
+      setNotValidEmail(false);
+      setEmail(e.target.value)
+    }else{
+      setNotValidEmail(true);
+      setErrMessage("Invalid Email Address");
+    }
+  }
   return (
     <MDBContainer fluid>
+
+      {/* {notValidEmail && 
+      <h3>{errMessage}</h3>} */}
 
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
         <MDBCol col='12'>
@@ -56,10 +71,14 @@ function Signup() {
       <div style={{color:'red'}}>{message}</div> : 
       <div style={{color:'green'}}>{message}</div> 
       }
+      {notValidEmail && 
+      <div style={{color:'red'}}>{errMessage}</div>
+      }
 
               <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='User Name' id='formControlLg' type='text' size="lg" onChange={(e) => setUsername(e.target.value)}/>
               <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" onChange={(e) => setPassword(e.target.value)}/>
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" onChange={(e) => setEmail(e.target.value)}/>
+              {/* <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" onChange={(e) => setEmail(e.target.value)}/> */}
+              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" onChange={handleEmail}/>
               <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Institute' id='formControlLg' type='text' size="lg" onChange={(e) => setInstitute(e.target.value)}/>
 
              <br/>
